@@ -1,0 +1,14 @@
+{
+    "id":"xss",
+    "name":"xss",
+    "defs":[
+    "tr":{
+        "background":"bg-tr",
+        "recommendation":"rec-tr"
+    },
+    "en":{
+        "background":"bg-en",
+        "recommendation":"rec-en"
+    }
+    ]
+}

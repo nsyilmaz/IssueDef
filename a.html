@@ -1,0 +1,122 @@
+<html lang="tr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="w3.css">
+
+</style>
+
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -86px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space:nowrap;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+</head>
+
+<div class="w3-col l10 m12" id="main">
+ 
+
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="a.js"></script>
+<script>
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+</script>
+
+<script>
+//jQuery(document).ready(function($) {
+
+    $(".issue").click(function() {
+
+    copyText = this.innerHTML;
+    navigator.clipboard.writeText(copyText);
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied";
+
+
+
+    });
+
+</script>
+
+<script>
+	function getIssue(type){
+		//rawData = JSON.parse('{"Critical":1, "High":2, "Medium":3, "Low":4, "Info":5}');
+                    //alert(rawData);
+		//drawChart(rawData, chartType);
+                //return;
+		xmlhttp=new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				rawData = JSON.parse(this.responseText);
+				putData(rawData);
+			}
+		};
+
+		switch(type) {
+			case "xss":
+				xmlhttp.open("GET", "xss.json", true);
+			break;
+			case "sqli":
+				xmlhttp.open("GET", "sqli.json", true);
+			break;
+		}
+
+		xmlhttp.send();  
+	}
+
+
+
+        function putData(rawData){
+
+                alert(rawData);
+        }
+
+    //getIssue("sqli");
+
+
+</script>
+
+
