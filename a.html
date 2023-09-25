@@ -51,6 +51,8 @@
  
 
 
+
+
 </div>
 
 
@@ -59,8 +61,8 @@
 <script src="a.js"></script>
 <script>
 
-function outFunc() {
-  var tooltip = document.getElementById("myTooltip");
+function outFunc(current) {
+  var tooltip = document.getElementById(current.parentElement.parentElement.id+"_"+current.id);
   tooltip.innerHTML = "Copy to clipboard";
 }
 </script>
@@ -72,7 +74,7 @@ function outFunc() {
 
     copyText = this.innerHTML;
     navigator.clipboard.writeText(copyText);
-    var tooltip = document.getElementById("myTooltip");
+    var tooltip = document.getElementById(this.parentElement.parentElement.id+"_"+this.id);
     tooltip.innerHTML = "Copied";
 
 
